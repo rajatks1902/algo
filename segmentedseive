@@ -1,0 +1,40 @@
+const int n=1e7;
+int a[n+1]={0};
+vector<int>  v;
+void isprime()
+{
+        for(int i=2;i<=n;i++)
+        {
+            if(a[i]==0){
+                for(int j=i*i;j<=n;j=j+i)
+                    a[j]=1;
+            }
+        }
+    for(int i=2;i<n;i++)
+        if(a[i]==0)
+            v.push_back(i);
+}
+void solve(){
+    int l,r;
+    cin>>l>>r;
+    isprime();
+    int t=sqrt(r);
+    int s=r-l;
+    int p=lower_bound(all(v),t)-v.begin();
+    int arr[s+1]={0};
+    for(int i=0;i<=p;i++)
+    {
+        int x=(l/v[i])*v[i];
+        if(x<l)
+        x=x+v[i];
+        int z=max(x,v[i]*v[i]);
+        for(int j=z;j<=r;j=j+v[i])
+            arr[j-l]=1;
+    }
+    vi v1;
+    for(int i=0;i<=s;i++)
+        if(arr[i]==0 && i+l>1)
+            v1.pb(i+l);
+         
+       
+}

@@ -1,0 +1,19 @@
+//Time Compexity ::O(n^2)
+//Best Case ::O(n)
+//Method:-Reapetedly Swap two Adjacent element if they are in the wroung order
+		and repeat this process n times
+void bubblesort(){
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++)
+        cin>>a[i];
+    for(int i=0;i<n;i++){
+        for(int i=0;i<n-1;i++){
+            if(a[i]>a[i+1])
+                swap(a[i],a[i+1]);
+        }
+    }
+    for(int i=0;i<n;i++)
+        cout<<a[i]<<" ";
+}
